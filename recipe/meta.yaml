@@ -52,8 +52,9 @@ requirements:
     - tqdm >=4.32
     - traitlets >=4,<5.0.0a0
     - zstandard
+    - requests
+    - setuptools_scm >=3.4
     - h5py
-    - cffi
 
 test:
   imports:
