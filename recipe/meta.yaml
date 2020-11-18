@@ -1,5 +1,5 @@
 {% set name = "ctapipe" %}
-{% set version = "0.9.1" %}
+{% set version = "0.10.0.post1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,26 +7,26 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 35ac6fb9db7f89879e0e1807765fb31e3e165f7af9b0adfff27dea777a6136f3
+  sha256: 267dcc7964435d9964ccbe3f6a00055626a5e975e11db5780fffd273400e6658
 
 build:
   noarch: python
-  number: 1
-  script: "{{ PYTHON }} -m pip install . -vv"
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vv
   entry_points:
-    - "ctapipe-info = ctapipe.tools.info:main"
-    - "ctapipe-camdemo = ctapipe.tools.camdemo:main"
-    - "ctapipe-dump-triggers = ctapipe.tools.dump_triggers:main"
-    - "ctapipe-chargeres-extract = ctapipe.tools.extract_charge_resolution:main"
-    - "ctapipe-chargeres-plot = ctapipe.tools.plot_charge_resolution:main"
-    - "ctapipe-dump-instrument=ctapipe.tools.dump_instrument:main"
-    - "ctapipe-event-viewer = ctapipe.tools.bokeh.file_viewer:main"
-    - "ctapipe-display-tel-events = ctapipe.tools.display_events_single_tel:main"
-    - "ctapipe-display-imagesums = ctapipe.tools.display_summed_images:main"
-    - "ctapipe-reconstruct-muons = ctapipe.tools.muon_reconstruction:main"
-    - "ctapipe-display-integration = ctapipe.tools.display_integrator:main"
-    - "ctapipe-display-dl1 = ctapipe.tools.display_dl1:main"
-    - "ctapipe-stage1-process = ctapipe.tools.stage1:main"
+    - ctapipe-info = ctapipe.tools.info:main
+    - ctapipe-camdemo = ctapipe.tools.camdemo:main
+    - ctapipe-dump-triggers = ctapipe.tools.dump_triggers:main
+    - ctapipe-chargeres-extract = ctapipe.tools.extract_charge_resolution:main
+    - ctapipe-chargeres-plot = ctapipe.tools.plot_charge_resolution:main
+    - ctapipe-dump-instrument=ctapipe.tools.dump_instrument:main
+    - ctapipe-event-viewer = ctapipe.tools.bokeh.file_viewer:main
+    - ctapipe-display-tel-events = ctapipe.tools.display_events_single_tel:main
+    - ctapipe-display-imagesums = ctapipe.tools.display_summed_images:main
+    - ctapipe-reconstruct-muons = ctapipe.tools.muon_reconstruction:main
+    - ctapipe-display-integration = ctapipe.tools.display_integrator:main
+    - ctapipe-display-dl1 = ctapipe.tools.display_dl1:main
+    - ctapipe-stage1-process = ctapipe.tools.stage1:main
 
 requirements:
   host:
@@ -75,7 +75,7 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE.txt
-  summary: 'Low-level data processing pipeline software for CTA (the Cherenkov Telescope Array)'
+  summary: Low-level data processing pipeline software for CTA (the Cherenkov Telescope Array)
 
   description: |
     Low-level data processing pipeline software for CTA (the Cherenkov Telescope Array)
