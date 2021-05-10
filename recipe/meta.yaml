@@ -44,7 +44,6 @@ requirements:
     - matplotlib-base >=3.0,<4.0.0a0
     - numba >=0.43
     - numpy >=1.17
-    - pandas >=0.24.0
     - psutil
     - scikit-learn
     - scipy >=1.2
@@ -54,7 +53,7 @@ requirements:
     - zstandard
     - requests
     - setuptools_scm >=3.4
-    - h5py >=2.8,<3
+    - h5py
 
 test:
   imports:
