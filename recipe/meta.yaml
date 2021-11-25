@@ -33,6 +33,7 @@ requirements:
     - python >=3.7
     - pip
     - setuptools
+    - setuptools_scm >=3.4
   run:
     - python >=3.7
     - setuptools
