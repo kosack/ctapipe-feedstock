@@ -10,10 +10,9 @@ source:
   sha256: 728be900f61e95977b2346137f7b0bebf9e83cb1f9895a18cf6ea88f57a11b77
 
 build:
-  skip: True  # [python_impl != 'cpython']
-  skip: True  # [py < 37]
-  number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  noarch: python
+  number: 1
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
   entry_points:
     - ctapipe-info = ctapipe.tools.info:main
     - ctapipe-camdemo = ctapipe.tools.camdemo:main
@@ -31,11 +30,12 @@ build:
 
 requirements:
   host:
-    - python
+    - python >=3.7
     - pip
     - setuptools
+    - setuptools_scm >=3.4
   run:
-    - python
+    - python >=3.7
     - setuptools
     - astropy >=4,<5
     - bokeh >=1.0,<2.0.0a0
@@ -55,7 +55,7 @@ requirements:
     - requests
     - setuptools_scm >=3.4
     - h5py
-    - importlib_resources  # [py<39]
+    - importlib_resources
 
 test:
   imports:
@@ -69,6 +69,8 @@ test:
   commands:
     - ctapipe-info --version
     - pip check
+    # make sure we have a version
+    - pip freeze | grep ctapipe | grep -v ctapipe==0.0.0
   requires:
     - pip
 
