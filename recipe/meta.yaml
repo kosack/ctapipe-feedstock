@@ -69,6 +69,8 @@ test:
   commands:
     - ctapipe-info --version
     - pip check
+    # make sure we have a version
+    - pip freeze | grep ctapipe | grep -v ctapipe==0.0.0
   requires:
     - pip
 
