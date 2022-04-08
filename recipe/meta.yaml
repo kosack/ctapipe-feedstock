@@ -1,5 +1,5 @@
 {% set name = "ctapipe" %}
-{% set version = "0.12.0" %}
+{% set version = "0.13.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 728be900f61e95977b2346137f7b0bebf9e83cb1f9895a18cf6ea88f57a11b77
+  sha256: 8be82a721b81eeccd63a3114cc9a7b9ace9a25e0e5bc5fc99792ae0c99217135
 
 build:
   noarch: python
-  number: 1
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   entry_points:
     - ctapipe-info = ctapipe.tools.info:main
     - ctapipe-camdemo = ctapipe.tools.camdemo:main
@@ -30,15 +30,15 @@ build:
 
 requirements:
   host:
-    - python >=3.7
+    - python >=3.8
     - pip
     - setuptools
     - setuptools_scm >=3.4
   run:
-    - python >=3.7
+    - python >=3.8
     - setuptools
-    - astropy >=4,<5
-    - bokeh >=1.0,<2.0.0a0
+    - astropy >=5,<6.0a0
+    - bokeh >=2.0,<3.0.0a0
     - eventio >=1.5.1,<2.0.0a0
     - iminuit >=2.0,<3
     - joblib
@@ -56,6 +56,7 @@ requirements:
     - setuptools_scm >=3.4
     - h5py
     - importlib_resources
+    - jinja2 =3.0
 
 test:
   imports:
