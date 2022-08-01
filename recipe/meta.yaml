@@ -57,6 +57,7 @@ requirements:
     - h5py
     - importlib_resources
     - jinja2 =3.0
+    - docutils
 
 test:
   imports:
